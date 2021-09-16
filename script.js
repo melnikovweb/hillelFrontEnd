@@ -1,7 +1,7 @@
-addQuestion  = prompt("Сколько будет 2+2?");
+addQuestion  = prompt("Сколько будет 2+2?").toLocaleLowerCase();
 sunQuestion  = confirm("Солнце встает на востоке?");
-divideQuestion  = prompt("Сколько будет 5 / 0?");
-skyQuestion  = prompt("Какого цвета небо?");
+divideQuestion  = prompt("Сколько будет 5 / 0?").toLocaleLowerCase();
+skyQuestion  = prompt("Какого цвета небо?").toLocaleLowerCase();
 universeQuestion  = prompt("Какой правильный ответ на главный вопрос жизни, вселенной и всего такого.");
 counter = 0;
 
