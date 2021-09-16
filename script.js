@@ -1,27 +1,32 @@
-firstName = prompt("Enter first name pls").trim(); 
-lastName = prompt("Enter last name pls").trim();
-customerEmail = prompt("Enter email pls").replaceAll(' ','').toLowerCase();
-birth = prompt("Enter year of birth pls").replaceAll(' ','');
-date = new Date().getFullYear();
+addQuestion  = prompt("Сколько будет 2+2?");
+sunQuestion  = confirm("Солнце встает на востоке?");
+divideQuestion  = prompt("Сколько будет 5 / 0?");
+skyQuestion  = prompt("Какого цвета небо?");
+universeQuestion  = prompt("Какой правильный ответ на главный вопрос жизни, вселенной и всего такого.");
+counter = 0;
 
-//Проверка даты рождения
-if (+date>birth){
-    age = date - birth;
-} else{
-    age = "Вы еще не родились"
+switch (addQuestion){
+    case "четыре":
+    case "four":
+    case "4":   
+    counter += 10;
 }
-
-//Проверка email
-if (!customerEmail.includes(`@`)) {
-    customerEmail = `not valid email <b>${customerEmail}</b> (symbol @ not exist)` ;
-} else if (customerEmail[0] == `@`) {
-    customerEmail = `not valid email <b>${customerEmail}</b> (symbol @ find in first place)`;
-} else if (customerEmail[customerEmail.length-1] == `@`) { 
-    customerEmail = `not valid email <b>${customerEmail}</b> (symbol @ find in last place)`;
+if (sunQuestion == true) {
+    counter += 10;
+} 
+if (divideQuestion == "0" || divideQuestion =="ноль" || divideQuestion =="zero") {
+    counter += 10;
+} 
+switch (skyQuestion){
+    case "ясное":
+    case "светлое":        
+    case "серое":
+    case "чистое":
+    case "облачное":    
+    counter += 10;
+}
+if (universeQuestion == "42") {
+    counter += 10;
 } 
 
-document.write(`<ul class="user">
-		<li>Name: <b>${firstName} ${lastName}</b></li>
-		<li>Email: <b>${customerEmail}</b></li>
-		<li>Age: <b>${age}</b></li>
-	</ul>`);
+document.write(`<p>Ваш результат: <b> ${counter}</b></p>`);
