@@ -1,20 +1,18 @@
 price = 0;
 burger = prompt("Hamburger or Cheeseburger");
 
-if (!burger){
-     document.write(`you have not chosen a burger - please reload the page and try again`);
-}else{
+if (burger){
 if (burger.trim().toLocaleLowerCase() == "hamburger") {
     price += 10;
-}else if (burger.trim().toLocaleLowerCase() == "cheeseburger") {
+} 
+if (burger.trim().toLocaleLowerCase() == "cheeseburger") {
     price += 15;
     cheese = confirm("Would you like double cheese?");
     if(cheese){
         price += 5;
         cheese = " with double cheese"
     }
-} else{
-    document.write(`you entered the name of the burger incorrectly, please try again`);
+} 
 }
 potato = confirm("Would you like potato?");
 
@@ -58,4 +56,3 @@ document.write(`</ul>
     <p>Price: ${price} </p>
 `);
 
-}
