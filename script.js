@@ -35,8 +35,8 @@ if (sauce) {
     typeofSauce = prompt("Choose sauce: ketchup/mayonnaise");
     if (!typeofSauce) {
     typeofSauce = "ketchup";
-    price += 10;
 }
+    price += 10;
 } 
 
 document.write(`<h2>Your order:</h2><ul>`);
