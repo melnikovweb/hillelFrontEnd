@@ -43,7 +43,7 @@ document.write(`<h2>Your order:</h2><ul>`);
 
 if(burger) {
 document.write(`<li>Bulka 🍔: ${burger}`);
-if (burger == "cheeseburger" && cheese){
+if (burger.trim().toLocaleLowerCase() == "cheeseburger" && cheese){
     document.write(`${cheese}</li>`);
 }else{
     document.write(`</li>`);
