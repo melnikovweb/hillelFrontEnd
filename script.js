@@ -55,4 +55,4 @@ document.write(`<li>Sauce 🧂:  ${typeofSauce}</li>`);
 document.write(`</ul>
     <p>Price: ${price} </p>
 `);
-
+console.log("test");
