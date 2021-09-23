@@ -1,3 +1,4 @@
+document.write(`<h2>Your order:</h2><ul>`);
 price = 0;
 burger = prompt("Hamburger or Cheeseburger");
 
@@ -13,6 +14,12 @@ if (burger.trim().toLocaleLowerCase() == "cheeseburger") {
         cheese = " with double cheese"
     }
 } 
+    document.write(`<li>Bulka 🍔: ${burger}`);
+    if (burger.trim().toLocaleLowerCase() == "cheeseburger" && cheese){
+        document.write(`${cheese}</li>`);
+    }else{
+        document.write(`</li>`);
+    }
 }
 potato = confirm("Would you like potato?");
 
@@ -26,6 +33,7 @@ if (potato) {
         fries = "small";
         price += 10;
     }
+    document.write(`<li>Potato 🍟: ${fries} </li>`);
 } 
 
 sauce = confirm("Would you like sauce?");
@@ -35,23 +43,10 @@ if (sauce) {
     typeofSauce = "ketchup";
 }
     price += 10;
+    document.write(`<li>Sauce 🧂:  ${typeofSauce}</li>`);
 } 
 
-document.write(`<h2>Your order:</h2><ul>`);
-
-if(burger) {
-document.write(`<li>Bulka 🍔: ${burger}`);
-if (burger.trim().toLocaleLowerCase() == "cheeseburger" && cheese){
-    document.write(`${cheese}</li>`);
-}else{
-    document.write(`</li>`);
-}}
-if(potato) {
-document.write(`<li>Potato 🍟: ${fries} </li>`);
-}
-if(sauce) {
-document.write(`<li>Sauce 🧂:  ${typeofSauce}</li>`);
-}
 document.write(`</ul>
     <p>Price: ${price} </p>
 `);
+
