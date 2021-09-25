@@ -13,32 +13,24 @@ do{
 InnerOperand = +prompt(`Введите ${i} операнд`);
 }while(!InnerOperand || isNaN(operand))
 
+
+if(i==1){
+    sum=InnerOperand;  
+    }else{ 
 switch(operator){
 case "+":
     sum+=InnerOperand;
     break;
-case "*":
-    if(i==1){
-    sum=InnerOperand;  
-    }else{   
+case "*": 
     sum*=InnerOperand;  
-    }
     break; 
 case "-":
-    if(i==1){
-    sum=InnerOperand;  
-    }else{
     sum-=InnerOperand; 
-    }
     break; 
 case "/":
-    if(i==1){
-    sum=InnerOperand;  
-    }else{
     sum/=InnerOperand; 
-    }
     break;     
-}
+}}
 console.log(`операнд ${i} = ${InnerOperand}`);
 console.log(sum);
 }
