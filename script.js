@@ -1,42 +1,50 @@
+sum=0;
+
 do{
     operator = prompt("Что хотите сделать? (+ - / *)", "+");
 }while(operator !="+" && operator !="-" && operator !="/" && operator !="*")
 
 do{
-    operand = prompt("Cколько операндов должно быть?");
-}while(operand<=1 || operand>=7)
-operand = +operand;
-sum=0;
+    operand = prompt("Cколько операндов должно быть?(от 2 до 6)");
+    operand = +operand;
+}while(operand<=1 || operand>=7 || isNaN(operand))
 
 
 for (i=1; operand>= i; i++){
 
-operandin = +prompt(`Введите ${i} операнд`);
+do{
+InnerOperand = +prompt(`Введите ${i} операнд`);
+InnerOperand = +InnerOperand;
+}while(!InnerOperand || isNaN(operand))
 
 
 switch(operator){
 case "+":
-    sum+=operandin;
+    sum+=InnerOperand;
     break;
 case "*":
-    sum*=operandin;  
+    if(i==1){
+    sum=InnerOperand;  
+    }else{   
+    sum*=InnerOperand;  
+    }
     break; 
 case "-":
     if(i==1){
-    sum=operandin;  
+    sum=InnerOperand;  
     }else{
-    sum-=operandin; 
+    sum-=InnerOperand; 
     }
     break; 
 case "/":
     if(i==1){
-    sum=operandin;  
+    sum=InnerOperand;  
     }else{
-    sum/=operandin; 
+    sum/=InnerOperand; 
     }
     break;     
 }
-console.log(`операнд ${i} = ${operandin}`);
+console.log(`операнд ${i} = ${InnerOperand}`);
 console.log(sum);
 }
 alert(`Результат операции ("${operator}") выполненный над ${operand} операндами, равен: ${sum}`)
