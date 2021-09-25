@@ -1,4 +1,3 @@
-debugger
 do{
     first = +prompt("Enter a", "4");
 }while(!first || isNaN(first))
