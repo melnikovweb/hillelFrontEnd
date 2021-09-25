@@ -1,26 +1,23 @@
-
-
-factorial = 1;
 debugger
 do{
-    first = +prompt("Enter a", "5");
+    first = +prompt("Enter a", "4");
 }while(!first || isNaN(first))
-
 do{
-    second = +prompt("Enter b", "23");
-}while(!second || isNaN(second) || first>second)
-
+    second = +prompt(`Enter b (must be more than ${first})`, "22");
+}while(!second || isNaN(second) || first>=second)
 do{
-    iterator = +prompt("Enter iterator", "2");
-}while(!iterator || isNaN(iterator) || second<iterator)
+    iterator = +prompt(`Enter iterator(must be less than ${second-first})`, "4");
+}while(!iterator || isNaN(iterator) || second-first<iterator)
 
-for(i=first; second>i ; i+=iterator){
-console.log(i);
+for(i=first, sum=0; second>=i ; i+=iterator){
+factorial=1;
 
-factorial*=i;
-
-console.log(factorial);
-
+for(j=1; i>=j; j++){
+factorial*=j;
 }
 
+console.log(`Фактоиал числа ${i} равен: ${factorial}`);
+sum+=factorial;
+}
+console.log(`Сумма фактоиалов ${sum}`);
 
