@@ -1,37 +1,22 @@
-sum=0;
-do{
-    operator = prompt("Что хотите сделать? (+ - / *)", "+");
-}while(operator !="+" && operator !="-" && operator !="/" && operator !="*")
 
-do{
-    operand = +prompt("Cколько операндов должно быть?(от 2 до 6)", "3");
-}while(operand<=1 || operand>=7 || isNaN(operand))
 
-for (i=1; operand>= i; i++){
+
+debugger
+do{
+    first = +prompt("Enter a", "5");
+}while(!first || isNaN(first))
 
 do{
-InnerOperand = +prompt(`Введите ${i} операнд`);
-}while(!InnerOperand || isNaN(operand))
+    second = +prompt("Enter b", "23");
+}while(!second || isNaN(second) || first>second)
 
+do{
+    iterator = +prompt("Enter iterator", "2");
+}while(!iterator || isNaN(iterator) || second<iterator)
 
-if(i==1){
-    sum=InnerOperand;  
-    }else{ 
-switch(operator){
-case "+":
-    sum+=InnerOperand;
-    break;
-case "*": 
-    sum*=InnerOperand;  
-    break; 
-case "-":
-    sum-=InnerOperand; 
-    break; 
-case "/":
-    sum/=InnerOperand; 
-    break;     
-}}
-console.log(`операнд ${i} = ${InnerOperand}`);
-console.log(sum);
+for(i=first; second>i ; i+=iterator){
+console.log(i);
+
 }
-alert(`Результат операции ("${operator}") выполненный над ${operand} операндами, равен: ${sum}`)
+
+
