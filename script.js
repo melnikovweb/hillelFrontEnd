@@ -1,6 +1,6 @@
 
 
-
+factorial = 1;
 debugger
 do{
     first = +prompt("Enter a", "5");
@@ -16,6 +16,10 @@ do{
 
 for(i=first; second>i ; i+=iterator){
 console.log(i);
+
+factorial*=i;
+
+console.log(factorial);
 
 }
 
