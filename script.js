@@ -3,7 +3,6 @@ do{
 }while(!arrayLenght || isNaN(arrayLenght) || arrayLenght <= 1 || arrayLenght >= 11)
 
 newArray = new Array(arrayLenght);
-
 halfArray = Math.ceil(arrayLenght/2);
 
 for (i=0; i<halfArray; i++){
@@ -12,13 +11,13 @@ for (i=0; i<halfArray; i++){
 for (; i<arrayLenght; i++){
     do{
     newArray[i] = prompt(`Enter half array. Element ${i}`, "one");
-    }while(newArray[i] == "")
+    }while(!newArray[i] || newArray[i] == "")
 }
 console.log(`Array contain: ${newArray}`);
 
 for (i=0, sum=0; i<arrayLenght; i++){
-    if(typeof newArray[i] === 'number'){
-        sum += newArray[i];
+    if(!isNaN(+newArray[i])){
+        sum += +newArray[i];
     }
 }
 console.log(`Sum: ${sum}`);
