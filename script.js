@@ -1,22 +1,27 @@
 do{
-    first = +prompt("Enter a", "4");
-}while(!first || isNaN(first))
-do{
-    second = +prompt(`Enter b (must be more than ${first})`, "22");
-}while(!second || isNaN(second) || first>=second)
-do{
-    iterator = +prompt(`Enter iterator(must be less than ${second-first})`, "4");
-}while(!iterator || isNaN(iterator) || second-first<iterator)
+    arrayLenght = +prompt("Array Lenght (from 2 to 10)", "4");
+}while(!arrayLenght || isNaN(arrayLenght) || arrayLenght <= 1 || arrayLenght >= 11)
 
-for(i=first, sum=0; second>=i ; i+=iterator){
-factorial=1;
+newArray = new Array(arrayLenght);
 
-for(j=1; i>=j; j++){
-factorial*=j;
+halfArray = Math.ceil(arrayLenght/2);
+
+for (i=0; i<halfArray; i++){
+    newArray[i] = Math.round(Math.random()*20-10);
 }
-
-console.log(`Фактоиал числа ${i} равен: ${factorial}`);
-sum+=factorial;
+for (; i<arrayLenght; i++){
+    do{
+    newArray[i] = prompt(`Enter half array. Element ${i}`, "one");
+    }while(newArray[i] == "")
 }
-console.log(`Сумма фактоиалов ${sum}`);
+console.log(`Array contain: ${newArray}`);
+
+for (i=0, sum=0; i<arrayLenght; i++){
+    if(typeof newArray[i] === 'number'){
+        sum += newArray[i];
+    }
+}
+console.log(`Sum: ${sum}`);
+
+
 
