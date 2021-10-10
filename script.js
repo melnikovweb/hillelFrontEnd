@@ -1,7 +1,7 @@
 const suit = ['clubs', 'spades', 'diamonds', 'hearts'];
 const denomination = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'T'];
 
-document.write(` <div class="wrapper">	 `);
+document.write(`<div class="wrapper">`);
 
 for (let i=0; i<denomination.length;i++){
  for (let j=0; j<suit.length; j++){
@@ -17,7 +17,7 @@ case 'K':
 tempDenom = 'king';
 break;
 case 'T':
-tempDenom = suit[j]
+tempDenom = suit[j];
 break;
 default: 
 tempDenom = denomination[i] ;
