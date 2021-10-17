@@ -1,15 +1,7 @@
 "use strict";
 function main (a=2, b=3, c) { 
   let sumrezult = sum (a, b);
-
-  if (typeof c ===`function`){
-    let mainrezult = c(sumrezult);
-    return mainrezult;  
-  }
-  else{
-    return sumrezult;
-  }
-
+  return typeof c ===`function`? c(sumrezult):sum(a,b);
 }
 function sum (a, b) { 
     return a + b; 
