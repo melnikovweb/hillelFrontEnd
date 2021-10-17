@@ -1,30 +1,21 @@
-function main (a='2', b='3', c) { 
-debugger
-  sumrezult = sum(a, b);
-  crezult = c(sumrezult);
-  console.log(`sum =${crezult}`)
-}
+"use strict";
+function main (a=2, b=3, c) { 
+  let sumrezult = sum (a, b);
 
+  if (typeof c ===`function`){
+    let mainrezult = c(sumrezult);
+    return mainrezult;  
+  }
+  else{
+    return sumrezult;
+  }
+
+}
 function sum (a, b) { 
-    debugger
     return a + b; 
 }
-
-
-function funcC (y, x=100) { 
-    debugger
-    return y + x; 
+function funcC (y) { 
+  return y*2; 
 }
-
-
-debugger
-main(undefined, 10, funcC);
-
-sum();
-
-
-// Перепишите функцию main следующим образом:
-
-
-// Если аргумент c передан и он является функцией, то он выполняется после вызова функции sum, и в качестве входящего значение принимает результат работы функции sum.
-// Функция main должна возвращать результат функции аргумента c, если он есть, либо результат функции sum.
+console.log(main(undefined, 10));  //без аргумента "c" //12
+console.log(main(undefined, 10, funcC)); //с аргументом "c" в виде функции // 12*2=24
