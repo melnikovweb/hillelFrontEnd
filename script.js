@@ -10,7 +10,7 @@ let tuesday = [
    ['A whole lot of nothing',60]
 ];
  
-let days = monday.concat(tuesday); //решил не делать функцию копирования масива так как небыло задачи сохранить исходные масивы
+let days = monday.concat(tuesday);
 let newTasks = new Array;
 let sum = new Number;
 
