@@ -1,5 +1,4 @@
 "use strict";
-debugger
 let amount = 100;
 let monday = [
   ['Write a tutorial',360],
@@ -12,39 +11,20 @@ let tuesday = [
 ];
  
 let days = monday.concat(tuesday); //решил не делать функцию копирования масива так как небыло задачи сохранить исходные масивы
-
-console.log(monday);
-console.log(tuesday);
-console.log(days);
+let newTasks = new Array;
+let sum = new Number;
 
 days.forEach(
-  function(item, index){
-    if (item[1]/60 >=2){
-    item[1] = item[1]/60;
-    item.push(item[1]*amount);
+  function(item){
+    if (item[1]/60 <=2){
+    newTasks.push([item[0], item[1]/60, item[1]/60*amount]);
+    sum+= item[1]/60*amount;
   }
-    else{
-      let removed = days.splice(index, 1);
+  });
+document.write(`<table border=1><tfoot>Sum of task amounts: ${sum}</tfoot`);
+    for(let i=0; i<=newTasks.length-1; i++){
+      document.write(`<tr><td>Task name:${newTasks[i][0]}</td>
+        <td>Taks duration: ${newTasks[i][1]} hours</td>
+        <td>Task amount: ${newTasks[i][2]}$ </td></tr> `);
     }
-    console.log(item[1])
-  }
-);
-
-
-
-
-// Запустить foreach или reduce и просумировать значение цен amount 
-// Вывести все это в html
-
-
-
-// Для элементов массивов monday и tuesday необходимо выполнить следующие методы:
-
-// Сконвертировать время потраченное на выполнение задач в часы, вместо минут.
-// Оставить только те задачи, на выполнение которых нужно менее 2-х часов или 2 часа ровно.
-// Умножить результат на часовую ставку (amount) и добавить полученное значение в качестве третъего элемента в массив.
-// Посчитать сумму, которую можно получить за выполнение всех отфильтрованных задач и вывести ее в tfoot таблицы.
-// Вывести в html таблицу, которая состоит из ячеек с задачами в виде:
-
-// Используем только методы concat/forEach/map/filter/reduce/join (по надобности, все не нужно).
-
+document.write(`</table>`);
