@@ -1,121 +1,104 @@
-let kitchenProducts = [
+const roles = {
+	admin: "https://www.flaticon.com/svg/static/icons/svg/1424/1424453.svg",
+	student: "https://www.flaticon.com/svg/static/icons/svg/1424/1424424.svg",
+	lector: "https://www.flaticon.com/svg/static/icons/svg/1424/1424450.svg"
+};
+
+const gradation = {
+	20: "satisfactory",
+	55: "good",
+	85: "very-good",
+	100: "excellent"
+};
+
+const users = [
 	{
-		type: 'grater',
-		price: 10
+		name: "Jack Smith",
+		age: 23,
+		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922522.svg",
+		role: "student",
+		courses: [
+			{
+				"title": "Front-end Pro",
+				"mark": 20
+			},
+			{
+				"title": "Java Enterprise",
+				"mark": 100
+			}
+		]
 	},
 	{
-		type: 'pastry-bag',
-		price: 25
+		name: "Amal Smith",
+		age: 20,
+		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922656.svg",
+		role: "student"
 	},
 	{
-		type: 'scale',
-		price: 5
+		name: "Noah Smith",
+		age: 43,
+		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922616.svg",
+		role: "student",
+		courses: [
+			{
+				"title": "Front-end Pro",
+				"mark": 50
+			}
+		]
 	},
 	{
-		type: 'whisk',
-		price: 15
+		name: "Charlie Smith",
+		age: 18,
+		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922688.svg",
+		role: "student",
+		courses: [
+			{
+				"title": "Front-end Pro",
+				"mark": 75
+			},
+			{
+				"title": "Java Enterprise",
+				"mark": 23
+			}]
+	},
+	{
+		name: "Emily Smith",
+		age: 30,
+		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922565.svg",
+		role: "admin",
+		courses: [
+			{
+				"title": "Front-end Pro",
+				"score": 10,
+				"lector": "Leo Smith"
+			},
+			{
+				"title": "Java Enterprise",
+				"score": 50,
+				"lector": "David Smith"
+			},
+			{
+				"title": "QA",
+				"score": 75,
+				"lector": "Emilie Smith"
+			}]
+	},
+	{
+		name: "Leo Smith",
+		age: 253,
+		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922719.svg",
+		role: "lector",
+		courses: [
+			{
+				"title": "Front-end Pro",
+				"score": 78,
+				"studentsScore": 79
+			},
+			{
+				"title": "Java Enterprise",
+				"score": 85,
+				"studentsScore": 85
+			}
+		]
 	}
-];
-
-let devicesProducts = [
-	{
-		type: 'desktop',
-		price: [100,1000]
-	},
-	{
-		type: 'laptop',
-		price: [50,1500]
-	},
-	{
-		type: 'smartphone',
-		price: [80,2000]
-	},
-	{
-		type: 'tablet',
-		price: [20,1300]
-	}
-];
-
-let cosmeticsProducts = [
-	{
-		type: 'blush',
-		price: 100
-	},
-	{
-		type: 'eyeshadow',
-		price: 50
-	},
-	{
-		type: 'lipstick',
-		price: 80
-	},
-	{
-		type: 'nail-polish',
-		price: 200
-	},
-	{
-		type: 'perfume',
-		price: 300,
-	}
-];
-
-function catName (name, category){
-	for (key in name){
-		name[key].category = category;
-	}
-}
-
-catName(kitchenProducts, "kitchen");
-catName(devicesProducts, "devices");
-catName(cosmeticsProducts, "cosmetics");
-
-let allProducts = kitchenProducts.concat(devicesProducts, cosmeticsProducts);
-
-class Product{
-	constructor(category, type, price){
-		this.category = category;
-		this.type = type;
-		this.price = price;
-	}
-	
-	render(){
-		let price= (Array.isArray(this.price))? this.price.join(`-`):this.price;
-		document.write(`<tr>
-		<td><img src="images/${this.category}/${this.type}.svg" alt="${this.type}" width="50" height="50"></td>
-		<td>${this.type}</td>
-		<td>${price} USD</td>
-	</tr>`)
-	}
-}
-
-document.write(`<table border="1">
-        <thead>
-               <tr>
-               <th>Image</th>
-               <th>Name</th>
-               <th>Price</th>
-      			</tr>
-    	</thead>
-   		 <tbody>`);
-
-		allProducts.map(prodObj=>new Product(prodObj.category, prodObj.type, prodObj.price)) //Не уверен что тут правильно каждый раз создавать новый объект, но работает без ошибок
-		.map(prodObj=>prodObj.render())
-
-document.write(` </tbody></table>`);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+]
