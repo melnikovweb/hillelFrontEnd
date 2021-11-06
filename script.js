@@ -1,54 +1,60 @@
-"use strict";
-let marvelHeroes = [
+let kitchenProducts = [
 	{
-		name: "Thor"
+		type: 'grater',
+		price: 10
 	},
 	{
-		name: "Spider Man"
+		type: 'pastry-bag',
+		price: 25
+	},
+	{
+		type: 'scale',
+		price: 5
+	},
+	{
+		type: 'whisk',
+		price: 15
 	}
 ];
-let dcHeroes = [
+
+let devicesProducts = [
 	{
-		name: "Superman"
+		type: 'desktop',
+		price: [100,1000]
 	},
 	{
-		name: "Batman"
+		type: 'laptop',
+		price: [50,1500]
 	},
 	{
-		name: "Deadpool"
+		type: 'smartphone',
+		price: [80,2000]
+	},
+	{
+		type: 'tablet',
+		price: [20,1300]
 	}
 ];
-Array.prototype.heroesRender = function(brand) {
- let brandName = brand === "marvel" ? "marvel" : "dc";
- document.write(`<table border=1>
- <thead>
-   <tr>
-     <th>Name</th>
-     <th>Icon</th>
-   </tr>
- </thead>
- <tbody>`)
- 
-  this.forEach(function(item) {
-    document.write(`<tr>
-     <td>${item.name}</td>
-     <td><img src="images/${brandName}/${item.name.toLowerCase().replaceAll(' ', '')}.svg">
-     </td>
-   </tr>`) 
 
-});
-document.write(`	
-</tbody>
-</table>`)
-}
-
-let brand = prompt("marvel or dc?").toLowerCase();
-while(brand !="marvel" && brand !="dc"){
-  brand = prompt(`Not (${brand}) - marvel or dc?`).toLowerCase();
-}
-
-if (brand === "marvel"){
-  marvelHeroes.heroesRender(brand);
-}else{
-  dcHeroes.heroesRender(brand);
-}
+let cosmeticsProducts = [
+	{
+		type: 'blush',
+		price: 100
+	},
+	{
+		type: 'eyeshadow',
+		price: 50
+	},
+	{
+		type: 'lipstick',
+		price: 80
+	},
+	{
+		type: 'nail-polish',
+		price: 200
+	},
+	{
+		type: 'perfume',
+		price: 300,
+	}
+];
