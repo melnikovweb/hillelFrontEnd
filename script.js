@@ -102,3 +102,144 @@ const users = [
 		]
 	}
 ]
+
+
+
+
+class User {
+	constructor(name,age,role,courses){
+		this.name = name;
+		this.age = age
+		this.role = role;
+		if (courses){
+		this.courses = courses;}
+	}
+	render(){
+		document.write(`
+		<div class="user">
+		<div class="user__info">
+			<div class="user__info--data">
+				<img src="../hillelFrontEnd/images/users/${this.name.replace(' ', '')}.png" alt="${this.name}" height="50">
+				<div class="user__naming">
+					<p>Name: <b>${this.name}</b></p>
+					<p>Age: <b> ${this.age}</b></p>
+				</div>
+			</div>
+			<div class="user__info--role ${this.role}">
+				<img src="../hillelFrontEnd/images/roles/${this.role}.png" alt="${this.role}" height="25">
+				<p>${this.role}</p>
+			</div>
+		</div>	`)
+		if (this.courses){
+        this.renderCourses();}
+		document.write(`
+	</div>
+	`)
+
+	}
+	renderCourses(){
+		document.write(`
+		<div class="user__courses">`)
+		
+		let mark;
+		let markWord;
+
+		for (let key in this.courses){
+			mark = this.courses[key].mark;
+			
+			for (let key in gradation){
+				if (mark >= key){
+					markWord = gradation[key];
+				}else{
+					markWord = "satisfactory";
+				}
+
+			}
+
+			document.write(`
+			<p class="user__courses--course student">
+				${this.courses[key].title} <span class="${markWord}">${markWord}</span>
+			</p>
+			`)
+
+		}
+			document.write(`</div>`)
+
+	}
+}
+
+
+
+
+class Student extends User{
+	constructor(){
+		super()
+	}	
+}
+
+class Lector extends User{
+	constructor(name,age,role,courses){
+		super(name,age,role,courses)
+	}	
+	renderCourses(){
+		document.write(`
+		<div class="user__courses admin--info">`)
+		
+		let score;
+		let scoreWord;
+		let studentsScore;
+		let studentsScoreWord;
+
+		for (let key in this.courses){
+			score = this.courses[key].score;
+			studentsScore = this.courses[key].studentsScore;
+			
+			for (let key in gradation){
+				if (score >= key){
+					scoreWord = gradation[key];
+				}else{
+					scoreWord = "satisfactory";
+				}	
+				if (studentsScore >= key){
+					studentsScoreWord = gradation[key];
+				}else{
+					studentsScoreWord = "satisfactory";
+				}	
+			}
+
+			document.write(`
+			<div class="user__courses--course lector">
+					<p>Title: <b>${this.courses[key].title}</b></p>
+                    <p>Lector's score: <span class="${scoreWord}">${scoreWord}</span></p>
+                    <p>Average student's score: <span class="${studentsScoreWord}">${studentsScoreWord}</span></p>
+			</div>
+			`)
+
+		}
+			document.write(`</div>`)
+
+	}
+}
+
+class Admin extends User{
+	constructor(name,age,role,adminScore,lector){
+		super(name,age,role)
+	}	
+	renderCourses(){
+		
+	}
+}
+
+
+
+users.map(
+	
+	userObj=>new Lector(userObj.name, userObj.age, userObj.role, userObj.courses)) 
+		.map(userObj=>userObj.render());
+
+
+
+
+function choiseRender(){
+	if (true==true){}
+}
