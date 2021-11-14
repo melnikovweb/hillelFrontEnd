@@ -1,9 +1,3 @@
-const roles = {
-	admin: "https://www.flaticon.com/svg/static/icons/svg/1424/1424453.svg",
-	student: "https://www.flaticon.com/svg/static/icons/svg/1424/1424424.svg",
-	lector: "https://www.flaticon.com/svg/static/icons/svg/1424/1424450.svg"
-};
-
 const gradation = {
 	20: "satisfactory",
 	55: "good",
@@ -15,7 +9,7 @@ const users = [
 	{
 		name: "Jack Smith",
 		age: 23,
-		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922522.svg",
+		img: "JackSmith",
 		role: "student",
 		courses: [
 			{
@@ -31,13 +25,13 @@ const users = [
 	{
 		name: "Amal Smith",
 		age: 20,
-		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922656.svg",
+		img: "AmalSmith",
 		role: "student"
 	},
 	{
 		name: "Noah Smith",
 		age: 43,
-		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922616.svg",
+		img: "NoahSmith",
 		role: "student",
 		courses: [
 			{
@@ -49,7 +43,7 @@ const users = [
 	{
 		name: "Charlie Smith",
 		age: 18,
-		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922688.svg",
+		img: "CharlieSmith",
 		role: "student",
 		courses: [
 			{
@@ -64,7 +58,7 @@ const users = [
 	{
 		name: "Emily Smith",
 		age: 30,
-		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922565.svg",
+		img: "EmilySmith",
 		role: "admin",
 		courses: [
 			{
@@ -86,7 +80,7 @@ const users = [
 	{
 		name: "Leo Smith",
 		age: 253,
-		img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922719.svg",
+		img: "LeoSmith",
 		role: "lector",
 		courses: [
 			{
@@ -101,7 +95,7 @@ const users = [
 			}
 		]
 	}
-]
+];
 
 
 
@@ -137,28 +131,33 @@ class User {
 	`)
 
 	}
+
+	gradationWord(mark){
+		if (mark<55){
+			mark=gradation["20"]
+		} else if (mark<85){
+			mark=gradation["55"]
+		}
+		else if (mark<100){
+			mark=gradation["85"]
+		}
+		else if (mark===100){
+			mark=gradation["100"]
+		}
+		return mark;
+	}
+
 	renderCourses(){
 		document.write(`
 		<div class="user__courses">`)
-		
-		let mark;
-		let markWord;
-
+				
 		for (let key in this.courses){
-			mark = this.courses[key].mark;
+							
+			let mark = this.gradationWord(this.courses[key].mark);
 			
-			for (let key in gradation){
-				if (mark >= key){
-					markWord = gradation[key];
-				}else{
-					markWord = "satisfactory";
-				}
-
-			}
-
 			document.write(`
 			<p class="user__courses--course student">
-				${this.courses[key].title} <span class="${markWord}">${markWord}</span>
+				${this.courses[key].title} <span class="${mark}">${mark}</span>
 			</p>
 			`)
 
@@ -168,12 +167,9 @@ class User {
 	}
 }
 
-
-
-
 class Student extends User{
-	constructor(){
-		super()
+	constructor(name,age,role,courses){
+		super(name,age,role,courses)
 	}	
 }
 
@@ -185,32 +181,15 @@ class Lector extends User{
 		document.write(`
 		<div class="user__courses admin--info">`)
 		
-		let score;
-		let scoreWord;
-		let studentsScore;
-		let studentsScoreWord;
-
 		for (let key in this.courses){
-			score = this.courses[key].score;
-			studentsScore = this.courses[key].studentsScore;
-			
-			for (let key in gradation){
-				if (score >= key){
-					scoreWord = gradation[key];
-				}else{
-					scoreWord = "satisfactory";
-				}	
-				if (studentsScore >= key){
-					studentsScoreWord = gradation[key];
-				}else{
-					studentsScoreWord = "satisfactory";
-				}	
-			}
 
+			let score = this.gradationWord(this.courses[key].score);
+			let studentsScoreWord = this.gradationWord(this.courses[key].studentsScore);
+		
 			document.write(`
 			<div class="user__courses--course lector">
 					<p>Title: <b>${this.courses[key].title}</b></p>
-                    <p>Lector's score: <span class="${scoreWord}">${scoreWord}</span></p>
+                    <p>Lector's score: <span class="${score}">${score}</span></p>
                     <p>Average student's score: <span class="${studentsScoreWord}">${studentsScoreWord}</span></p>
 			</div>
 			`)
@@ -222,24 +201,43 @@ class Lector extends User{
 }
 
 class Admin extends User{
-	constructor(name,age,role,adminScore,lector){
-		super(name,age,role)
-	}	
-	renderCourses(){
-		
+	constructor(name,age,role,courses){
+		super(name,age,role,courses)
 	}
+	renderCourses(){
+		document.write(`
+		<div class="user__courses admin--info">`)
+		
+		for (let key in this.courses){
+
+			let score = this.gradationWord(this.courses[key].score);
+			
+		
+			document.write(`
+			<div class="user__courses--course admin">
+					<p>Title: <b>${this.courses[key].title}</b></p>
+                    <p>Admin's score: <span class="${score}">${score}</span></p>
+                    <p>Lector: <b>${this.courses[key].lector}</b></p>
+			</div>
+			`)
+
+		}
+			document.write(`</div>`)
+
+	}	
+
 }
 
-
-
-users.map(
-	
-	userObj=>new Lector(userObj.name, userObj.age, userObj.role, userObj.courses)) 
+document.write(`<div class="users">`)
+users
+	.map(userObj => {
+		if(userObj.role == "lector")
+			return new Lector(userObj.name, userObj.age, userObj.role, userObj.courses)
+		if(userObj.role == "admin")
+			return new Admin(userObj.name, userObj.age, userObj.role, userObj.courses)
+		if(userObj.role == "student")
+			return new Student(userObj.name, userObj.age, userObj.role, userObj.courses)
+		}) 
 		.map(userObj=>userObj.render());
 
-
-
-
-function choiseRender(){
-	if (true==true){}
-}
+document.write(`</div>`)
