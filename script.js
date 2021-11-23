@@ -64,13 +64,14 @@ class Burger {
 
 
     get Calories(){
-        return this.size.calories + this.toppings.calories + this.supplements.calories
+        return this.calories = this.size.calories + this.toppings.calories + this.supplements.calories
     }
     get Price(){
-        return this.size.price + this.toppings.price + this.supplements.price
+        return this.price = this.size.price + this.toppings.price + this.supplements.price;
+        
     }
     get Total(){
-        
+      return `Your order: ${this.Size} Hamburger with ${this.Toppings} and ${this.Supplements} ///// Price: ${this.Price}, Calories: ${this.Calories}`
     }
 
 }
@@ -81,6 +82,7 @@ perekuson.Size=HAMBURGER.sizeBurg.big;
 perekuson.Toppings=HAMBURGER.toppings.chees;
 perekuson.Supplements=HAMBURGER.supplements.mayonnaise;
 
+
+
 console.log(perekuson)
-console.log(perekuson.Price)
-console.log(perekuson.Calories)
+console.log(perekuson.Total)
