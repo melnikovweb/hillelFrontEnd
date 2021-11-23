@@ -42,28 +42,26 @@ const HAMBURGER = {
 class Burger {
 
     get Size(){
-        return this.size ? this.size : this.size=small;
+        return this.size ? this.size : this.size=HAMBURGER.sizeBurg.small;
     }
-    set Size(){
+    set Size(value){
         this.size = value;
     }
     get Calories(){
         
     }
-    set Calories(){
-        //????//
-    }
-    set Toppings(){
 
+    set Toppings(value){
+        this.toppings = value;
     }
     get Toppings(){
-
+        return this.toppings ? this.toppings : this.toppings=HAMBURGER.toppings.chees;
     }
-    set Supplements(){
-
+    set Supplements(value){
+        this.supplements = value;
     }
     get Supplements(){
-        
+        return this.supplements ? this.supplements : this.supplements=HAMBURGER.supplements.seasoning;
     }
     get Price(){
         
@@ -79,3 +77,5 @@ let perekuson = new Burger;
 perekuson.Size=HAMBURGER.sizeBurg.big;
 perekuson.Toppings=HAMBURGER.toppings.chees;
 perekuson.Supplements=HAMBURGER.supplements.mayonnaise;
+
+console.log(perekuson)
