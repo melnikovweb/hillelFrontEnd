@@ -36,3 +36,46 @@ const HAMBURGER = {
         }
     }
 }
+
+
+
+class Burger {
+
+    get Size(){
+        return this.size ? this.size : this.size=small;
+    }
+    set Size(){
+        this.size = value;
+    }
+    get Calories(){
+        
+    }
+    set Calories(){
+        //????//
+    }
+    set Toppings(){
+
+    }
+    get Toppings(){
+
+    }
+    set Supplements(){
+
+    }
+    get Supplements(){
+        
+    }
+    get Price(){
+        
+    }
+    get Total(){
+        
+    }
+
+}
+
+let perekuson = new Burger;
+
+perekuson.Size=HAMBURGER.sizeBurg.big;
+perekuson.Toppings=HAMBURGER.toppings.chees;
+perekuson.Supplements=HAMBURGER.supplements.mayonnaise;
