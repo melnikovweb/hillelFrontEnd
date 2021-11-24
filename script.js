@@ -37,6 +37,9 @@ const HAMBURGER = {
     }
 }
 
+
+
+
 class Burger {
 
     set Size(value){
@@ -63,6 +66,7 @@ class Burger {
 
     get Calories(){
     	let sumSupplements = 0;
+    	let sumToppings = this.toppings ? this.toppings.calories : 0;
     	if (this.supplements)
     	if (Array.isArray(this.supplements)){
     		for (let i in this.supplements) {
@@ -71,12 +75,14 @@ class Burger {
 		}else{
 			sumSupplements = this.supplements.calories
 		}
-		let sumToppings = this.toppings ? this.toppings : 0
+		
         return this.calories = this.size.calories + sumToppings + sumSupplements;
    	 }
 
     get Price(){
     	let sumSupplements = 0;
+    	let sumToppings = this.toppings ? this.toppings.price : 0;
+
     	if (this.supplements)
     	if (Array.isArray(this.supplements)){
     		for (let i in this.supplements) {
@@ -85,9 +91,7 @@ class Burger {
 		}else{
 			sumSupplements = this.supplements.price
 		}
-		
-		let sumToppings = this.toppings ? this.toppings : 0
-
+				
         return this.price = this.size.price + sumToppings + sumSupplements;
         
     }
@@ -99,17 +103,19 @@ class Burger {
 }
 
 let perekuson1 = new Burger;
+
 perekuson1.Size=HAMBURGER.sizeBurg.big;
 perekuson1.Toppings=HAMBURGER.toppings.chees;
 perekuson1.Supplements=[HAMBURGER.supplements.mayonnaise, HAMBURGER.supplements.seasoning];
 
-console.log(`Burger 1 //////////////////////////////////`)
-console.log(perekuson1)
-console.log(perekuson1.Total)
+console.log(`Burger 1 //////////////////////////////////`);
+console.log(perekuson1);
+console.log(perekuson1.Total);
 
 let perekuson2 = new Burger;
+
 perekuson2.Size=HAMBURGER.sizeBurg.big;
 
-console.log(`Burger 2 //////////////////////////////////`)
-console.log(perekuson2)
-console.log(perekuson2.Total)
+console.log(`Burger 2 //////////////////////////////////`);
+console.log(perekuson2);
+console.log(perekuson2.Total);
