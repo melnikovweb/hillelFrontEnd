@@ -1,14 +1,20 @@
-const block = document.querySelector('.block');
-
-setInterval(
-    ()=>block.style.background='#' + (Math.random().toString(16) + '000000').substring(2,8).toUpperCase(),
-500
-)
-
-setInterval(
-    ()=>{
-    block.style.left=Math.floor(Math.random() * (window.innerWidth-100)) + 'px';
-    block.style.top=Math.floor(Math.random() * (window.innerHeight-100)) + 'px';
-},
-1000
-)
+const figures = [
+	{
+		type: "square",
+		width: 100,
+		height: 100,
+		background: "red"
+	},
+	{
+		type: "circle",
+		width: 150,
+		height: 150,
+		background: "green"
+	},
+	{
+		type: "rectangle",
+		width: 150,
+		height: 150,
+		background: "blue"
+	}
+];
