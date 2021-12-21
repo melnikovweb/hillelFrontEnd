@@ -19,7 +19,7 @@ const figures = [
 	}
 ];
 
-const getEventType = (event) => console.log(`${event.type} with ${event.target.className}`);
+const getEventType = event => console.log(`${event.type} with ${event.target.className}`);
 
 for (let i in figures){
 
@@ -31,8 +31,8 @@ for (let i in figures){
 	innerFig.style.height = `${figures[i].height}px`;
 	innerFig.style.width = `${figures[i].height}px`;
 
-    innerFig.onmouseenter = getEventType;
-    innerFig.onmouseleave = getEventType;
+        innerFig.onmouseenter = getEventType;
+        innerFig.onmouseleave = getEventType;
 
 	document.querySelector(`#figuresWrapper`).append(innerFig);
 }
