@@ -19,15 +19,18 @@ const figures = [
 	}
 ];
 
-const getEventType = (event) => console.log(`${event.type} with ${event.target.className}.`);
+const getEventType = (event) => console.log(`${event.type} with ${event.target.className}`);
 
 for (let i in figures){
 
 	let innerFig = document.createElement(`div`);
+
 	innerFig.classList.add(figures[i].type);
+
 	innerFig.style.background = figures[i].background;
 	innerFig.style.height = `${figures[i].height}px`;
 	innerFig.style.width = `${figures[i].height}px`;
+
     innerFig.onmouseenter = getEventType;
     innerFig.onmouseleave = getEventType;
 
